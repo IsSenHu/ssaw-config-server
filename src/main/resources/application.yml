@@ -1,0 +1,35 @@
+server:
+  port: 17001
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:14780118635@www.senhu.com:10001/eureka/
+  instance:
+    prefer-ip-address: true
+
+spring:
+  application:
+    name: ssaw-config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/IsSenHu/ssaw-config.git
+          username: 1178515826@qq.com
+          password: 521428Slyt
+          default-label: master
+          search-paths: ssaw-demo,ssaw-consumer-demo
+        health:                                           #监控检查配置
+          repositories:
+            check:
+              name: ssaw-demo,ssaw-consumer-demo
+              label: master,dev-husen
+              profiles: default,test,dev,prod
+        overrides:                                        #属性覆盖，提供默认配置
+          name: HuSen
+  security:                                               #用户密码认证
+    user:
+      name: admin
+      password: 521428Slyt
+
