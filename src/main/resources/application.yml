@@ -20,16 +20,35 @@ spring:
           password: 521428Slyt
           default-label: master
           search-paths: ssaw-demo,ssaw-consumer-demo
-        health:                                           #��ؼ������
+        health:                                           #监控检查配置
           repositories:
             check:
               name: ssaw-demo,ssaw-consumer-demo
               label: master,dev-husen
               profiles: default,test,dev,prod
-        overrides:                                        #���Ը��ǣ��ṩĬ������
+        overrides:                                        #属性覆盖，提供默认配置
           name: HuSen
-  security:                                               #�û�������֤
+    bus:                                                  #bus
+      enabled: true                                       #开启消息总线信息的监听和记录
+      trace:
+        enabled: true                                     #开启消息总线跟踪信息的监听和记录
+      destination: configBus                              #指定交换机名称
+
+  security:                                               #用户密码认证
     user:
       name: admin
       password: 521428Slyt
+  rabbitmq:                                               #amqp
+    host: www.senhu.com
+    port: 5672
+    username: husen
+    password: 521428
+    virtual-host: /
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh                              #消息总线刷新的位置
+
 
