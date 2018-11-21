@@ -1,12 +1,15 @@
 server:
   port: 17001
 
+ip: 118.24.38.46
+
 eureka:
   client:
     service-url:
       defaultZone: http://admin:14780118635@localhost:10001/eureka/
   instance:
     prefer-ip-address: true
+    instance-id: ${ip}:${server.port}
 
 spring:
   application:
