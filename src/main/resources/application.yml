@@ -20,7 +20,7 @@ spring:
           username: 1178515826@qq.com
           password: 521428Slyt
           default-label: master
-          search-paths: ssaw-demo,ssaw-consumer-demo
+          search-paths: ssaw-demo,ssaw-consumer-demo,user-resource
         health:                                           #监控检查配置
           repositories:
             check:
