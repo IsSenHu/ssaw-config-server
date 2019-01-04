@@ -24,7 +24,7 @@ spring:
         health:                                           #监控检查配置
           repositories:
             check:
-              name: ssaw-demo,ssaw-consumer-demo
+              name: ssaw-demo,ssaw-consumer-demo,user-resource
               label: master,dev-husen
               profiles: default,test,dev,prod
         overrides:                                        #属性覆盖，提供默认配置
